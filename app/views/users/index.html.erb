@@ -1,0 +1,16 @@
+<p>
+  <%= name_with_status(current_user.full_name, current_user.status,
+                       current_user.id, show_edit: true) %>
+</p>
+
+<div id="users-container">
+  <% @users.each do |user| %>
+    <p>
+      <%= name_with_status(user.full_name, user.status, user.id) %>
+    </p>
+  <% end %>
+</div>
+
+<script>
+  new StatusStream('/users/events')
+</script>
